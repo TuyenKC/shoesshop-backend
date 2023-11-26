@@ -39,7 +39,7 @@ public class VNPayController {
         int paymentStatus = vnPayService.orderReturn(request);
         RedirectView redirectView = new RedirectView();
 
-        redirectView.setUrl("https://tuyenkc.github.io/shoesshop-frontend/#/payment-status?paymentstatus="+ paymentStatus);
+        redirectView.setUrl("http://localhost:3000/payment-status?paymentstatus="+ paymentStatus);
         return redirectView;
     }
 
