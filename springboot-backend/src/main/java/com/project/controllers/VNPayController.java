@@ -24,7 +24,7 @@ public class VNPayController {
     public ResponseEntity<?> submitOrder(@RequestParam("amount") int orderTotal,
                                       @RequestParam("orderInfo") String orderInfo,
                                       HttpServletRequest request){
-        String baseUrl = request.getHeader("X-Forwarded-Host");
+        String baseUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
         String vnpayUrl = vnPayService.createOrder(orderTotal, orderInfo, baseUrl);
         return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("200","Create payment successfully",vnpayUrl));
     }
